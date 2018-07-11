@@ -1,0 +1,1065 @@
+//Author: De Roxas, Reuben M.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+
+void page2(), page3(), page4();
+void retry();
+void retry2();
+
+int circle(), time(), ave(), ntow(), arrser(), divi(), studinfo();
+int dollars(), colors(), oe(), bigger(), voc(), sphere();
+int facto(), remarks(), bigserch(), calcu(), arr2(), multi();
+int voc2(), colors2(), calcuv2(), prim();
+
+//Main Page
+int main(){
+	int ch1;
+	system("cls");
+	printf("MAIN MENU\n");
+	printf("[Page 01]\n");
+	printf("[1] Compute Area of the Circle\n");
+	printf("[2] Compute Average of Four Quizzes\n");
+	printf("[3] Seconds Conveter\n");
+	printf("[4] Numbers to Words\n");
+	printf("[5] Modified ARRAYNUMSERCH\n");
+	printf("[6] The Division\n");
+	printf("[7] Student Information\n");
+	
+	printf("\n[8] Next Page =>\n");
+	printf("[9] Exit\n");
+	printf("Enter your Choice: ");
+	scanf("%d", &ch1);
+	
+	if(ch1 < 10){
+	switch(ch1){
+		
+		case 1:
+			circle();
+		break;
+		
+		case 2:
+			ave();
+		break;
+		
+		case 3:
+			time();
+		break;
+			
+		case 4:
+			ntow();
+		break;
+		
+		case 5:
+			arrser();
+		break;
+		
+		case 6:
+			divi();
+		break;
+		
+		case 7:
+			studinfo();
+		break;
+		
+		case 8:
+			page2();
+		break;
+		
+		case 9:
+			printf("\nTerminating Program");
+			getch();
+		break;
+		}
+	}
+	if(ch1 > 10){
+		printf("\nERROR!");
+		retry();
+	}
+}
+int circle(){
+	#define PI 3.1416
+  	float r, a;
+  	system("cls");
+  	printf("[1] Compute Area of the Circle\n");
+	printf("Radius: ");
+	scanf("%f", &r);
+	a = PI * r * r;
+	printf("The Area of the Circle Is: %.2f\n", a);
+	getch();
+	retry();
+}
+int ave(){
+	int i;
+	float quiz[100];
+	float sum = 0.0;
+	float average;
+	system("cls");
+	printf("[2] Compute Average of Four Quizzes\n");
+	for(i=0; i<4; ++i){
+		printf("Enter Quiz #%d: ",i+1);
+      	scanf("%f", &quiz[i]);
+      	sum += quiz[i];  	
+    }
+    average = sum / 4;
+   	printf("Average = %.2f", average);
+	getch();
+	retry();
+}
+int time(){
+	long sec;
+	long hr;
+	long min;
+	long t;
+	system("cls");
+	printf("[1] Seconds Converter\n");
+	printf("\nEnter time in seconds: ");
+	scanf("%ld", &sec);
+	hr = sec/3600;
+	t = sec%3600;
+	min = t/60;
+	sec = t%60;
+	printf("\nTime is %ld hrs %ld mins %ld secs", hr, min, sec);
+	printf("\nHours: %ld", hr);
+	printf("\nMinutes: %ld ", min);
+	printf("\nSeconds: %ld ", sec);
+	getch();
+	retry();
+}
+int ntow(){
+	int number,i=0,j,digit;
+    char * word[1500];
+    system("cls");
+	printf("[4] Numbers to Words\n");
+    printf("Enter any Number form 0 to 1500");
+    printf("\nInput: ");
+    scanf("%d",&number);
+    while(number){
+    digit = number %10;
+    number = number /10;
+         switch(digit){
+             case 0: word[i++] = "zero"; break;
+             case 1: word[i++] = "one"; break;
+             case 2: word[i++] = "two"; break;
+             case 3: word[i++] = "three"; break;
+             case 4: word[i++] = "four"; break;
+             case 5: word[i++] = "five"; break;
+             case 6: word[i++] = "six"; break;
+             case 7: word[i++] = "seven"; break;
+             case 8: word[i++] = "eight"; break;
+             case 9: word[i++] = "nine"; break;
+         }
+    }
+    for(j=i-1;j>=0;j--){
+         printf("%s ",word[j]);
+    }
+    getch();
+    retry();
+}
+int arrser(){
+	
+	int array[100], search, c, n, count = 0;
+	system("cls");
+	printf("[5] Modified ARRAYNUMSERCH\n");
+	printf("Enter Number of Elements: ");
+	scanf("%d", &n);
+	printf("\n%d Are to be Entered\n", n);
+	for ( c = 0 ; c < n ; c++ ){
+		printf("Node[%d]: ", c);
+		scanf("%d", &array[c]);
+	}
+	printf("\nSearch Key: ");
+	scanf("%d", &search);
+ 
+	for (c = 0; c < n; c++){
+		if (array[c] == search) {
+		printf("%d is present at Node[%d]\n", search, c);
+		count++;
+      }
+	}
+	if (count == 0){
+		printf("%d is not present in array.\n", search);
+	}
+	else{
+		printf("%d is present %d times in array.\n", search, count);
+	}
+	getch();
+    retry();
+}
+int divi(){
+	int dividend;
+	int divisor;
+	int ans = 0;
+	system("cls");
+	printf("[6] The Division\n");
+	printf("Enter A Dividen: ");
+	scanf("%d", &dividend);
+	printf("Enter a Divisor: ");
+	scanf("%d", &divisor);
+	while (dividend >= divisor){
+        dividend -= divisor;
+		ans++;   
+    }
+    printf("\nAnswer: %d", ans);
+    printf("\nRemainder: %d", dividend);
+    getch();
+    retry();
+}
+int studinfo(){
+	#define max 100
+	#define min 100
+	char * fn[100], *ln[100], *ys[100], *sb[100];
+	float qz1, qz2 , ave;
+	float rec, ass, att;
+	float recg, assg, attg, csg;
+	float exam, examg, pref, final;	
+
+	system("cls");
+	printf("[7] Student Information\n");
+	printf("Student Information\n");
+	printf("First Name: ");
+	scanf("%s", &fn);
+	printf("Last Name: ");
+	scanf("%s", &ln);
+	printf("Year and Section: ");
+	scanf("%s", &ys);
+	printf("Subject: ");
+	scanf("%s", &sb);
+	
+	
+	quizzes:
+	printf("\nEnter Quizzes");
+	printf("\nEnter Quiz#1: ");
+	scanf("%f", &qz1);
+
+	printf("Enter Quiz#2: ");
+	scanf("%f", &qz2);
+
+	ave=qz1+qz2;
+	ave=ave/2;
+
+	cs:
+	printf("\nClass Standing");
+	printf("\nEnter Recitation: ");
+	scanf("%f", &rec);
+
+	printf("Enter Assignment: ");
+	scanf("%f", &ass);
+
+	printf("Enter Attendance: ");
+	scanf("%f", &att);
+
+	recg=rec*.45;
+	assg=ass*.45;
+	attg=att*.10;
+	csg=recg+assg+attg;
+	
+	exm:
+	printf("\nExamination Grade");
+	printf("\nEnter Examination Grade: ");
+	scanf("%f", &exam);
+	examg=exam*2;
+	
+	pref=examg+csg+ave;
+	final=pref/4;
+	system("cls");
+	printf("\nStudent Name: %s, %s",ln,fn);
+	printf("\nYear amd Section: %s", ys);
+	printf("\nSubject: %s", sb);
+	printf("\nQuiz: %.2f", ave);
+	printf("\nClass Standing: %.2f", csg);
+	printf("\nExam: %.2f", exam);
+	printf("\nTerm Grade: %.2f", final);
+	getch();
+	retry();
+}
+
+//Page 2
+void page2(){
+	int ch2;
+	system("cls");
+	printf("MAIN MENU\n");
+	printf("[Page 02]\n");
+	printf("[1] Dollars\n");
+	printf("[2] Colors\n");
+	printf("[3] Odd or Even\n");
+	printf("[4] Which is larger\n");
+	printf("[5] Vowel or Consonant\n");
+	printf("[6] Volume of a Shpere\n");
+	
+	printf("\n[7] <= Previous Page\n");
+	printf("[8] Next Page =>\n");
+	printf("[9] Exit\n");
+	printf("Enter your Choice: ");
+	scanf("%d", &ch2);
+	
+	if(ch2 < 10){
+	switch(ch2){
+		
+		case 1:
+			dollars();
+		break;
+		
+		case 2:
+			colors();
+		break;
+		
+		case 3:
+			oe();
+		break;
+		
+		case 4:
+			bigger();
+		break;
+		
+		case 5:
+			voc();
+		break;
+		
+		case 6:
+			sphere();
+		break;
+		
+		case 7:
+			main();
+		break;
+		
+		case 8:
+			page3();
+		break;
+		
+		case 9:
+			printf("\nTerminating Program");
+			getch();
+		break;
+		}
+	}
+	if(ch2 > 10){
+		printf("\nERROR!");
+		retry();
+	}
+}
+int dollars(){
+	#define dollar 46.10
+	
+	float amnt;
+	float recv;
+	float chnge;
+	float conv;
+	int dv;
+	
+	system("cls");
+	printf("[1] Dollars\n");
+	printf("Amount of Purchase: P");
+	scanf("%f", &amnt);
+	printf("Payment Recieved: P");
+	scanf("%f", &recv);
+	chnge = recv-amnt;
+	
+	printf("\nDollars: $%.2f", chnge);
+    
+	conv=chnge/dollar;
+    printf("\nDollars: $%.2f", conv);
+    getch();
+    retry();
+}
+int colors(){
+	char inp;
+	system("cls");
+	printf("[2] Colors\n");
+	printf("[Y][R][G] Colors\n");
+	printf("Enter a String:");
+	scanf("%s", &inp);
+	switch(inp){
+		case 'y':
+			printf("YELLOW");
+		break;
+		case 'Y':
+			printf("YELLOW");
+		break;
+		case 'r':
+			printf("RED");
+		break;
+		case 'R':
+			printf("RED");
+		break;
+		case 'g':
+			printf("GREEN");
+		break;
+		case 'G':
+			printf("GREEN");
+		break;
+		default:
+			printf("Unknown!");
+		break;
+	}
+	getch();
+    retry();
+}
+int oe(){
+	
+	int num;
+	system("cls");
+	printf("[3] Odd or Even\n");
+	printf("Enter an Integer: ");
+	scanf("%d",&num);
+	if((num%2)==0){
+		printf("%d is even.",num);
+	}
+	else{
+		printf("%d is odd.",num);
+	}
+	getch();
+    retry();
+}
+int bigger(){
+	int num1;
+	int num2;
+	system("cls");
+	printf("[4] Which is Larger\n");
+	printf("Enter 1st: ");
+	scanf("%d", &num1);
+	printf("Enter 2nd: ");
+	scanf("%d", &num2);
+	if(num1 == num2){
+		printf("They are Equal");
+	}
+	else{
+		if(num1 > num2){
+			printf("1st integer is Greater: %d", num1);
+		}
+		else{
+			printf("2nd integer is Greater: %d", num2);
+		}
+	}
+	getch();
+	retry();
+}
+int voc(){
+	char inp;
+	system("cls");
+	printf("[5] Vowel or Consonant\n");
+	printf("Enter an alphabet: ");
+	scanf("%c",&inp);
+	if(inp=='a'||inp=='A'||inp=='e'||inp=='E'||inp=='i'||inp=='I'||inp=='o'||inp=='O'||inp=='u'||inp=='U'){
+		printf("%c is a vowel.", inp);
+	}  
+	else{
+		printf("%c is a consonant.", inp);
+	}
+	getch();
+    retry();
+}
+int sphere(){
+	#define PI 3.1416
+	#define g 1.3333333333333333333333333
+  	float r, a;
+  	float v;
+  	system("cls");
+	printf("[6] Volume of a Shpere\n");;
+	printf("Radius: ");
+	scanf("%f", &r);
+	a = PI * r * r * r;
+	v = g * a;
+	printf("The Area of the Circle Is: %.2f\n", v);
+	getch();
+	retry();
+}
+
+//Page 3
+void page3(){
+	int ch3;
+	system("cls");
+	printf("MAIN MENU\n");
+	printf("[Page 03]\n");
+	printf("[1] Factorial\n");
+	printf("[2] Remarks\n");
+	printf("[3] Find The Largest\n");
+	printf("[4] Calculator\n");
+	printf("[5] 5x5 Array\n");
+	printf("[6] Multiplication\n");
+	
+	printf("\n[7] <= Previous Page\n");
+	printf("[8] Next Page =>\n");
+	printf("[9] Exit\n");
+	printf("Enter your Choice: ");
+	scanf("%d", &ch3);
+	
+	if(ch3 < 10){
+	switch(ch3){
+		
+		case 1:
+			facto();
+		break;
+		
+		case 2:
+			remarks();
+		break;
+		
+		case 3:
+			bigserch();
+		break;
+		
+		case 4:
+			calcu();
+		break;
+		
+		case 5:
+			arr2();
+		break;
+		
+		case 6:
+			multi();
+		break;
+		
+		case 7:
+			page2();
+		break;
+		
+		case 8:
+			page4();
+		break;
+		
+		case 9:
+			printf("\nTerminating Program");
+			getch();
+		break;
+		}
+	}
+	if(ch3 > 10){
+		printf("\nERROR!");
+		retry();
+	}	
+}
+
+//Page 4
+void page4(){
+	int ch4;
+	system("cls");
+	printf("MAIN MENU\n");
+	printf("[Page 04]\n");
+	printf("[1] Prime Numbers\n");
+	printf("[2] Vowel or Consonant\n");
+	printf("[3] Seconds Conveter\n");
+	printf("[4] Colors V2\n");
+	printf("[5] Calculator V2\n");
+	
+	printf("\n[6] <= Previous Page\n");
+	printf("[7] Exit\n");
+	printf("Enter your Choice: ");
+	scanf("%d", &ch4);
+	
+	if(ch4 < 10){
+	switch(ch4){
+		
+		case 1:
+			prim();
+		break;
+		
+		case 2:
+			voc2();
+		break;
+		
+		case 3:
+			time();
+		break;
+		
+		case 4:
+			colors2();
+		break;
+		
+		case 5:
+			calcuv2();
+		break;
+		
+		case 6:
+			page3();
+		break;
+		
+		case 7:
+			printf("\nTerminating Program");
+			getch();
+		break;
+		}
+	}
+	if(ch4 > 10){
+		printf("\nERROR!");
+		retry();
+	}	
+}
+
+int prim(){
+	int num1, num2, flag_var, i, j;
+	system("cls");
+	printf("[1] Prime Numbers\n");
+	printf("\nEnter Ranges:");
+	printf("\n[From]: ");
+	scanf("%d", &num1);
+	printf("[TO]: ");
+	scanf("%d", &num2);
+	
+	printf("\nPrime numbers from %d and %d are:\n", num1, num2);
+	for(i=num1+1; i<num2; ++i){
+		flag_var=0;
+		for(j=2; j<=i/2; ++j){
+			if(i%j==0){
+            flag_var=1;
+            break;
+		}
+	}
+	if(flag_var==0){
+		printf("%d\n",i);
+	}
+	}
+	getch();
+    retry();
+}
+int facto(){
+	
+	int i=1,f=1,num;
+	system("cls");
+	printf("[1] Factorial\n");
+	printf("[1] Factorial\n");
+	printf("Enter a number: ");
+	scanf("%d",&num);
+	while(i<=num){
+		f=f*i;
+		i++;
+	}
+	printf("Factorial of %d is: %d",num,f);
+	getch();
+	retry();
+}
+int remarks(){
+	char lg;
+	system("cls");
+	printf("[2] Remarks");
+	printf("Enter Letter Grade: ");
+	scanf("%c", &lg);
+	printf("\nRemarks: ");
+	switch(lg){
+		case 'A':
+			printf("Exelent");
+		break;
+		case 'a':
+			printf("Exelent");
+		break;
+		
+		case 'B':
+			printf("Very Good");
+		break;
+		case 'b':
+			printf("Very Good");
+		break;
+		
+		case 'C':
+			printf("Good");
+		break;
+		case 'c':
+			printf("Good");
+		break;
+		
+		case 'D':
+			printf("Needs Improvement");
+		break;
+		case 'd':
+			printf("Needs Improvement");
+		break;
+		
+		case 'F':
+			printf("You must Change your Study Habbit");
+		break;
+		case 'f':
+			printf("You must Change your Study Habbit");
+		break;
+		default:
+			printf("Wrong Input");
+		break;
+	}
+	getch();
+    retry();
+}
+int bigserch(){
+	int i,n;
+	float arr[100];
+	system("cls");
+	printf("[3] Find The Largest\n");
+	printf("Enter total number of elements(1 to 100): ");
+	scanf("%d",&n);
+	printf("\n");
+	for(i=0;i<n;++i){
+       printf("Node [%d]: ",i+1);
+       scanf("%f",&arr[i]);
+    }
+    for(i=1;i<n;++i){
+       if(arr[0]<arr[i])
+           arr[0]=arr[i];
+    }
+    printf("Largest element is %.2f",arr[0]);
+    printf(" in Node [%d]", i);
+    getch();
+    retry();
+}
+int calcu(){
+	char ch12;
+	int num1, num2;
+	float num11, num22;
+	system("cls");
+		printf("[4] Calculator\n");
+	printf("\n[A] Add");
+	printf("\n[B] Subtrac");
+	printf("\n[C] Multiply");
+	printf("\n[D] Divide");
+	printf("\n[E] Modulus");
+	printf("\nChoice: ");
+	scanf("%s", &ch12);
+	switch(ch12){
+		case 'A':
+			printf("\n[A] Add");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d + %d = %d",num1,num2,num1+num2);
+			getch();
+			retry2();
+		break;
+		case 'B':
+			printf("\n[B] Subtract");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d - %d = %d",num1,num2,num1-num2);
+			getch();
+			retry2();
+		break;
+		case 'C':
+			printf("\n[C] Multiply");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d * %d = %d",num1,num2,num1*num2);
+			getch();
+			retry2();
+		break;
+		case 'D':
+			printf("\n[D] Divide");
+			printf("\n[1]: ");
+			scanf("%f", &num11);
+			printf("[2]: ");
+			scanf("%f", &num22);
+			printf("%.2f / %.2f = %.2f",num11,num22,num11/num22);
+			getch();
+			retry2();
+		break;
+		case 'E':
+			printf("\n[E] Modulus");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			if((num1%2)==0){
+				printf("%d is even.",num1);
+			}
+			else{
+				printf("%d is odd.",num1);
+			}
+			getch();
+			retry2();
+		break;
+		
+		case 'a':
+			printf("\n[A] Add");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d + %d = %d",num1,num2,num1+num2);
+			getch();
+			retry2();
+		break;
+		case 'b':
+			printf("\n[B] Subtract");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d - %d = %d",num1,num2,num1-num2);
+			getch();
+			retry2();
+		break;
+		case 'c':
+			printf("\n[C] Multiply");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d * %d = %d",num1,num2,num1*num2);
+			getch();
+			retry2();
+		break;
+		case 'd':
+			printf("\n[D] Divide");
+			printf("\n[1]: ");
+			scanf("%f", &num11);
+			printf("[2]: ");
+			scanf("%f", &num22);
+			printf("%.2f / %.2f = %.2f",num11,num22,num11/num22);
+			getch();
+			retry2();
+		break;
+		case 'e':
+			printf("\n[E] Modulus");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			if((num1%2)==0){
+				printf("%d is even.",num1);
+			}
+			else{
+				printf("%d is odd.",num1);
+			}
+			getch();
+			retry2();
+		break;
+	}
+	getch();
+    retry();
+}
+int multi(){
+	int num1;
+	int num2;
+	int ans = 0;
+	system("cls");
+	printf("[6] Multiplication\n");
+	printf("Enter A Dividen: ");
+	scanf("%d", &num1);
+	printf("Enter a Divisor: ");
+	scanf("%d", &num2);
+
+	while (num2 > 0){
+        ans += num1;
+        num2--;
+    }
+    printf("\nAnswer: %d", ans);
+    getch();
+    retry();
+}
+int arr2(){
+	int disp[5][5];
+	int i, j;
+	system("cls");
+	printf("[5] 5x5 Array\n");
+	for(i=0; i<=5; i++){
+		for(j=0;j<=5;j++){
+			printf("Enter value for disp[%d][%d]:", i, j);
+			scanf("%d", &disp[i][j]);
+		}
+    }
+    getch();
+    retry();
+}
+int voc2(){
+	char inp;
+	system("cls");
+	printf("[2] Vowel or Consonant\n");
+	printf("Enter a Letter: ");
+	printf("\nChoice: ");
+	scanf("%s", &inp);
+	switch(inp){
+		case 'A':
+			printf("\nVowel");
+		break;
+		case 'E':
+			printf("\nVowel");
+		break;
+		case 'I':
+			printf("\nVowel");
+		break;
+		case 'O':
+			printf("\nVowel");
+		break;
+		case 'U':
+			printf("\nVowel");
+		break;
+		
+		case 'a':
+			printf("\nVowel");
+		break;
+		case 'e':
+			printf("\nVowel");
+		break;
+		case 'i':
+			printf("\nVowel");
+		break;
+		case 'o':
+			printf("\nVowel");
+		break;
+		case 'u':
+			printf("\nVowel");
+		break;
+		default:
+			printf("\nConsonant");
+		break;
+	}
+	getch();
+    retry();
+}
+int colors2(){
+	char inp;
+	system("cls");
+	printf("[4] Colors V2\n");
+	printf("[P][V][B] Colors\n");
+	printf("Enter a Character:");
+	scanf("%s", &inp);
+	switch(inp){
+		case 'p':
+			printf("PINK");
+		break;
+		case 'P':
+			printf("PINK");
+		break;
+		case 'V':
+			printf("Violet");
+		break;
+		case 'v':
+			printf("Violet");
+		break;
+		case 'b':
+			printf("BLUE");
+		break;
+		case 'B':
+			printf("BLUE");
+		break;
+		default:
+			printf("Unknown!");
+		break;
+	}
+	getch();
+    retry();
+}
+int calcuv2(){
+	char ch12;
+	int num1, num2;
+	float num11, num22;
+	system("cls");
+	printf("[5] Calculator V2\n");
+	system("cls");
+	printf("\n[+] Add");
+	printf("\n[-] Subtrac");
+	printf("\n[*] Multiply");
+	printf("\n[/] Divide");
+	printf("\n[%%] Modulus");
+	printf("\nChoice: ");
+	scanf("%s", &ch12);
+	switch(ch12){
+		case '+':
+			printf("\n[+] Add");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d + %d = %d",num1,num2,num1+num2);
+			getch();
+		break;
+		case '-':
+			printf("\n[-] Subtract");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d - %d = %d",num1,num2,num1-num2);
+			getch();
+		break;
+		case '*':
+			printf("\n[*] Multiply");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			printf("[2]: ");
+			scanf("%d", &num2);
+			printf("%d * %d = %d",num1,num2,num1*num2);
+			getch();
+		break;
+		case '/':
+			printf("\n[/] Divide");
+			printf("\n[1]: ");
+			scanf("%f", &num11);
+			printf("[2]: ");
+			scanf("%f", &num22);
+			printf("%.2f / %.2f = %.2f",num11,num22,num11/num22);
+			getch();
+		break;
+		case '%':
+			printf("\n[%] Modulus");
+			printf("\n[1]: ");
+			scanf("%d", &num1);
+			if((num1%2)==0){
+				printf("%d is even.",num1);
+			}
+			else{
+				printf("%d is odd.",num1);
+			}
+			getch();
+		break;
+	}
+	getch();
+    retry();
+}
+
+void retry(){
+	char CH02;
+	retry:
+	system("cls");
+	printf("\nDO YOU WANT TO PROCEED?");
+    printf("\n[Y] Yes || [N] No");
+    printf("\nEnter choice: ");
+    scanf("%s", &CH02);
+        switch(CH02){	
+            case 'Y':
+            	system("cls");
+                main();
+                break;
+            case 'y':
+            	system("cls");
+                main();
+                break;
+            case 'N':
+                printf("\nTerminating Program.\n");
+                break;
+            case 'n':
+                printf("\nTerminating Program.\n");
+                break;
+            default:
+                printf("\nWrong Input.\n");
+                goto retry;
+                break;       
+            }
+}
+void retry2(){
+	char CH02;
+	retry:
+	system("cls");
+	printf("\nRe-run Program");
+    printf("\n[Y] Yes || [N] No");
+    printf("\nEnter choice: ");
+    scanf("%c", &CH02);
+        switch(CH02){	
+            case 'Y':
+                main();
+                break;
+            case 'y':
+                main();
+                break;
+            case 'N':
+                printf("\nTerminating Program.\n");
+                break;
+            case 'n':
+                printf("\nTerminating Program.\n");
+                break;
+            default:
+                printf("\nWrong Input.\n");
+                goto retry;
+            break;
+		}
+}
